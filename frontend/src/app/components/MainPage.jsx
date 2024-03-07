@@ -1,4 +1,4 @@
-// components/MainPage.js
+  
 "use client"
 import React, { useState, useEffect } from 'react';
 import { fetchData, sendEmail, addData } from '../services/api';
@@ -11,14 +11,15 @@ const MainPage = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
-    // Fetch data from the backend
+  
     fetchData()
-      .then((response) => setData(response.data))
+      .then((response) =>
+       setData(response.data))
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
   
   const handleRowSelect = (rowId) => {
-    // Toggle selected rows
+   
     setSelectedRows((prevSelectedRows) => {
       if (prevSelectedRows.includes(rowId)) {
         return prevSelectedRows.filter((id) => id !== rowId);
@@ -29,7 +30,7 @@ const MainPage = () => {
   };
 
   const handleSendEmail = () => {
-    // Send selected rows data to email
+    
     sendEmail({ selectedRows })
       .then((response) => console.log(response.data.message))
       .catch((error) => console.error('Error sending email:', error));
@@ -44,10 +45,15 @@ const MainPage = () => {
   };
 
   const handleAddData = (newData) => {
-  
-    setData((prevData) => [...prevData, newData]);
+   
+    setData((prevData) => {
+      const updatedData = Array.isArray(prevData) ? prevData : [];
+      return [...updatedData, newData];
+    });
  
+    handleClosePopupForm();
   };
+  
 
   return (
     <div className="container mx-auto p-4">

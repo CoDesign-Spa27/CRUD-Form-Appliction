@@ -1,9 +1,9 @@
-// components/PopupForm.js
+ 
 import React, { useState } from 'react';
 import { addData } from '../services/api';
 
 const PopupForm = ({ isOpen, onClose, onAddData }) => {
-  const [formData, setFormData] = useState({ name: '', phoneNumber: '', email: '', hobbies: '' });
+  const [formData, setFormData] = useState([{ name: '', phoneNumber: '', email: '', hobbies: '' }]);
 
   const handleInputChange = (e) => {
     const {name,value}=e.target;
@@ -13,7 +13,8 @@ const PopupForm = ({ isOpen, onClose, onAddData }) => {
   const handleSave = async () => {
     try {
       const response = await addData(formData);
-      onAddData(response.savedData); // Assuming the server response has a 'savedData' property
+      onAddData(response.savedData);  
+    
     } catch (error) {
       console.error('Error adding data:', error);
     }
