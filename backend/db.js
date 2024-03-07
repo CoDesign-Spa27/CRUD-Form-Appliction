@@ -1,4 +1,4 @@
-// Example MongoDB schema
+
 const mongoose = require('mongoose');
 
 const formdataSchema = new mongoose.Schema({

@@ -82,7 +82,7 @@ try
 }
 })
 
-
+//route to delete data
 router.delete('/data/:id',async(req, res) =>{
     try{
         const deleteData=await FormData.findByIdAndDelete(req.params.id)
@@ -135,7 +135,7 @@ router.post('/send-email', async (req, res) => {
             name:"nodemailer",
             address:process.env.EMAIL_USER,
         },
-          to: 'codesignspa@gmail.com',
+          to: 'info@redpositive.in',
           subject: 'Selected Rows Data',
           text: JSON.stringify(selectedRows,null,2),
         };
