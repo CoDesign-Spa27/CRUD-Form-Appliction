@@ -1,7 +1,7 @@
  
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:3000'; 
+const BASE_URL = 'https://redpositive-162t.onrender.com'; 
 
 export const fetchData = async () => {
   try {

@@ -20,7 +20,7 @@ const Table = ({ onRowSelect }) => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/data');
+      const response = await axios.get('https://redpositive-162t.onrender.com/api/data');
       setData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
