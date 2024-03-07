@@ -42,7 +42,7 @@ const Table = ({ onRowSelect }) => {
   const handleSaveChanges = async () => {
     try {
       const updatedData = await axios.patch(
-        `http://localhost:3000/api/data/${selectedRowData._id}`,
+        `https://redpositive-162t.onrender.com/api/data/${selectedRowData._id}`,
         editedData
       );
      
@@ -57,7 +57,7 @@ const Table = ({ onRowSelect }) => {
   const handleDelete = async (id) => {
     try {
   
-      await axios.delete(`http://localhost:3000/api/data/${id}`);
+      await axios.delete(`https://redpositive-162t.onrender.com/api/data/${id}`);
        
       fetchData();
     } catch (error) {
